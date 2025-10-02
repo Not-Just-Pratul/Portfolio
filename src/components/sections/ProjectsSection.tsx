@@ -46,7 +46,7 @@ const projects = [
     tags: ['TypeScript', 'Node.js', 'Supabase', 'Tailwind'],
     image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
     demoUrl: :'https://shophub-myproject.vercel.app/',
-    githubUrl: 'https://v0-new-project-xuvlxscsztb.vercel.app/',
+    githubUrl: 'https://shophub-myproject.vercel.app/',
   },
   {
     id: 6,
