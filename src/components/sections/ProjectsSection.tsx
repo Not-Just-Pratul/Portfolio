@@ -63,7 +63,7 @@ const projects = [
     description: 'Intelligent optimization system for press shop operations',
     tags: ['React', 'Optimization', 'Analytics'],
     image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=600&fit=crop',
-    demoUrl: 'https://press-shop-planner-git-main-pratuldev.vercel.app/',
+    demoUrl: 'https://press-shop-planner.vercel.app/',
     githubUrl: 'https://press-shop-planner-git-main-pratuldev.vercel.app/',
   },
 ];
