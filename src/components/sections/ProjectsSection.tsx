@@ -72,8 +72,8 @@ const projects = [
     description: 'The simplest way to achieve deep focus and complete what matters most',
     tags: ['React', 'TypeScript', 'Vite', 'Shad-cn'],
     image: 'https://plus.unsplash.com/premium_photo-1674081975809-ec3b522cf2be?w=800&h=600&fit=crop',
-    demoUrl: 'https://monolith-stonefocus.vercel.app/',
-    githubUrl: 'https://monolith-stonefocus.vercel.app/',
+    demoUrl: 'https://monolith-stone-focus.vercel.app/',
+    githubUrl: 'https://monolith-stone-focus.vercel.app/',
   },
 ];
 
