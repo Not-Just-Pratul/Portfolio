@@ -131,7 +131,7 @@ const HeroSection = () => {
               className="group text-base shine"
               asChild
             >
-              <a href="https://drive.google.com/file/d/1j7oBEMiYxbmDlSfgIT4h7p7n2KNN-m9h/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
+              <a href="https://drive.google.com/file/d/1PxDzO4HEtFEZcJYJls0F0U5VxrJbDshT/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
                 <Download className="mr-2 w-5 h-5" />
                 Download Resume
               </a>
