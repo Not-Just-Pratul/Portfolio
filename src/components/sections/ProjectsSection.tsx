@@ -75,7 +75,7 @@ const projects = [
     demoUrl: 'https://monolith-stone-focus.vercel.app/',
     githubUrl: 'https://monolith-stone-focus.vercel.app/',
   },
-    {
+  {
     id: 9,
     title: 'AI Prompt Enhancer',
     description: 'The simplest way to create better prompts with AI',
