@@ -77,7 +77,7 @@ const projects = [
   },
     {
     id: 9,
-    title: 'AI Prompt Enhancer,
+    title: 'AI Prompt Enhancer',
     description: 'The simplest way to create better prompts with AI',
     tags: ['React', 'TypeScript', 'Vite', 'Shad-cn', 'Gen AI'],
     image: 'https://plus.unsplash.com/premium_photo-1725907643556-e987fab4b09d??w=800&h=600&fit=crop',
