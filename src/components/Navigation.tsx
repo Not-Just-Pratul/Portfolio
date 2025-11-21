@@ -96,7 +96,7 @@ const Navigation = () => {
               <Github className="w-5 h-5" />
             </motion.a>
             <motion.a
-              href="https://linkedin.com/in/pratul-s-bizjourney"
+              href="https://linkedin.com/in/not-just-pratul"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, y: -2 }}
