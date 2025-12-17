@@ -56,7 +56,9 @@ const HeroSection = () => {
             className="mb-8 flex justify-center"
           >
             <Avatar className="w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 ring-4 ring-primary/30 shadow-2xl">
-              <AvatarImage src="https://i.ibb.co/HfjxK9QB/supawork-5c2075fb766a43a39b3baa3e26bc75b6-2.png" alt="Pratul Sharma" />
+              <AvatarImage 
+              loading='lazy'
+              src="https://i.ibb.co/HfjxK9QB/supawork-5c2075fb766a43a39b3baa3e26bc75b6-2.png" alt="Pratul Sharma" />
               <AvatarFallback>PS</AvatarFallback>
             </Avatar>
           </motion.div>
