@@ -6,6 +6,7 @@ import { Avatar, AvatarImage, AvatarFallback } from '../ui/avatar';
 import gsap from 'gsap';
 import AdvancedScene3D from '../3d/AdvancedScene3D';
 import { HeroShapes } from '../3d/SectionBackground3D';
+import img from '../../assets/img.png'
 
 const HeroSection = () => {
   const titleRef = useRef<HTMLDivElement>(null);
@@ -58,7 +59,7 @@ const HeroSection = () => {
             <Avatar className="w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 ring-4 ring-primary/30 shadow-2xl">
               <AvatarImage 
               loading='lazy'
-              src="https://i.ibb.co/HfjxK9QB/supawork-5c2075fb766a43a39b3baa3e26bc75b6-2.png" alt="Pratul Sharma" />
+              src={img} alt="Pratul Sharma" />
               <AvatarFallback>PS</AvatarFallback>
             </Avatar>
           </motion.div>
