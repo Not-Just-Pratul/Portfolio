@@ -17,7 +17,8 @@ const TestimonialsSection = lazy(() => import('../components/sections/Testimonia
 const ContactSection = lazy(() => import('../components/sections/ContactSection'));
 const ScrollToTopButton = lazy(() => import('../components/ScrollToTopButton'));
 const AdvancedScene3D = lazy(() => import('@/components/3d/AdvancedScene3D'));
-const { AboutShapes, ProjectsShapes } = require('@/components/3d/SectionBackground3D');
+const AboutShapes = lazy(() => import('@/components/3d/SectionBackground3D').then(m => ({ default: m.AboutShapes })));
+const ProjectsShapes = lazy(() => import('@/components/3d/SectionBackground3D').then(m => ({ default: m.ProjectsShapes })));
 
 // Lazy load 3D scenes only if not on mobile
 const SectionWithBackground = ({ 

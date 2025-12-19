@@ -1,13 +1,62 @@
-# Robots.txt for SEO optimization
+# Robots.txt for SEO & Performance Optimization
+# Generated: December 19, 2025
+
+# Allow all crawlers to crawl the site
 User-agent: *
 Allow: /
+
+# Disallow crawling of unnecessary files and directories
 Disallow: /admin/
 Disallow: /private/
-Disallow: /*.json$
+Disallow: /api/
 Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /build/
+Disallow: /.git/
+Disallow: /.env*
+Disallow: /config/
+Disallow: /temp/
+Disallow: /tmp/
 
-# Crawl delay for heavy crawlers
+# Block access to static assets that don't need indexing
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+Disallow: /*?*utm_*
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*.css$
+Disallow: /*.js$
+Disallow: /*.map$
+
+# Optimize crawl budget - reduce unnecessary crawling
+Crawl-delay: 1
+Request-rate: 30/60
+
+# Google specific settings for faster crawling
+User-agent: Googlebot
+Disallow: /admin/
+Disallow: /private/
+Allow: /
+
+# Bing specific settings
+User-agent: Bingbot
+Disallow: /admin/
+Disallow: /private/
+Allow: /
 Crawl-delay: 1
 
-# Sitemaps
+# Optimization: Block unnecessary crawlers
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: DotBot
+Disallow: /
+
+# Sitemaps for search engines
 Sitemap: https://pratul.vercel.app/sitemap.xml
+Sitemap: https://pratul.vercel.app/robots.txt
+
+# Performance Note:
+# - Crawl-delay: 1 second prevents server overload
+# - Request-rate: 30 requests per 60 seconds for optimal performance
+# - Blocking static assets reduces crawl budget waste
+# - Query string parameters excluded to prevent duplicate crawling

@@ -1,0 +1,10 @@
+# Vercel Redirects Configuration
+
+# Redirect resume shortlink
+/resume https://drive.google.com/file/d/1PxDzO4HEtFEZcJYJls0F0U5VxrJbDshT/view 301
+
+# Force HTTPS and www removal (handled by Vercel by default)
+# But can be customized here if needed
+
+# Handle 404s - serve index.html for SPA routing
+/*  /index.html  200
