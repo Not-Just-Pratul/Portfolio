@@ -1,0 +1,47 @@
+{
+  "name": "Pratul Sharma - Full-Stack Developer & AI Engineer",
+  "short_name": "Pratul Sharma",
+  "description": "Full-Stack Developer & AI Engineer showcasing innovative 3D web projects and AI solutions. React, Node.js, TypeScript, Python.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#1e1e1e",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "https://i.postimg.cc/C5j3sFcV/Icon.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/C5j3sFcV/Icon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://i.postimg.cc/C5j3sFcV/Icon.jpg",
+      "sizes": "540x720",
+      "type": "image/jpeg"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Projects",
+      "short_name": "Projects",
+      "description": "View my latest portfolio projects",
+      "url": "/?tab=projects",
+      "icons": [
+        {
+          "src": "https://i.postimg.cc/C5j3sFcV/Icon.jpg",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "categories": ["productivity", "business"]
+}

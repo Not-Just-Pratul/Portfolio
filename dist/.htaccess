@@ -1,0 +1,118 @@
+# Apache Performance & Security Configuration
+# Place in root directory for Apache servers
+
+# Enable GZIP compression for faster delivery
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+    AddOutputFilterByType DEFLATE application/rss+xml application/atom+xml image/svg+xml
+</IfModule>
+
+# Browser caching - maximize page speed
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # HTML - 1 week
+    ExpiresByType text/html "access plus 1 week"
+    
+    # CSS & JavaScript - 30 days (use cache busting in filenames)
+    ExpiresByType text/css "access plus 30 days"
+    ExpiresByType application/javascript "access plus 30 days"
+    ExpiresByType application/x-javascript "access plus 30 days"
+    
+    # Images - 1 month
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    
+    # Fonts - 1 year (they rarely change)
+    ExpiresByType font/truetype "access plus 1 year"
+    ExpiresByType font/opentype "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # Default
+    ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# Use ETags to determine if content has changed
+<IfModule mod_headers.c>
+    <FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|js|css|woff|woff2|ttf|eot)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    
+    <FilesMatch "\.(html|xml)$">
+        Header set Cache-Control "public, max-age=3600"
+    </FilesMatch>
+</IfModule>
+
+# Enable HTTP/2 Server Push (if supported)
+<IfModule mod_http2.c>
+    H2PushDiarySize 64
+    H2Push on
+</IfModule>
+
+# Remove unnecessary headers to reduce payload
+<IfModule mod_headers.c>
+    Header always unset X-Powered-By
+    Header unset X-Powered-By
+</IfModule>
+
+# Rewrite rules for SPA routing
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Skip actual files and directories
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # Rewrite everything to index.html for SPA
+    RewriteRule ^ index.html [QSA,L]
+    
+    # Force HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Remove www if present
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+</IfModule>
+
+# Block access to sensitive files
+<FilesMatch "\.(env|json|log|sqlite|db)$">
+    Deny from all
+</FilesMatch>
+
+# Protect .git directory
+<DirectoryMatch "\.git">
+    Deny from all
+</DirectoryMatch>
+
+# Security headers for better performance and security
+<IfModule mod_headers.c>
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Enable XSS protection
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Control referrer information
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permissions policy (modern replacement for Feature Policy)
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# Serve pre-compressed files if available
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP:Accept-Encoding} gzip
+    RewriteCond %{REQUEST_FILENAME}.gz -f
+    RewriteRule ^(.+)$ $1.gz [L]
+</IfModule>
+
+<IfModule mod_mime.c>
+    AddType text/html .gz
+    AddEncoding gzip .gz
+</IfModule>

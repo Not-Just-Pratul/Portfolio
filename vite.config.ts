@@ -14,13 +14,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     // Optimize bundle size
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
+    minify: false,
     // Code splitting strategy
     rollupOptions: {
       output: {
