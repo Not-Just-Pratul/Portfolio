@@ -23,49 +23,83 @@ const achievements = [
   {
     icon: Trophy,
     title: 'Professional Certifications',
-    description: 'Google Cybersecurity, Canva Web Development, and AI-Powered Shopping Ads certifications',
+    description:
+      'Google Cybersecurity, Canva Web Development, and AI-Powered Shopping Ads certifications',
     color: 'text-primary'
   }
 ];
 
 const AchievementsSection = () => {
   return (
-    <section id="achievements" className="relative py-32 overflow-hidden">
+    <section
+      id="achievements"
+      aria-labelledby="achievements-heading"
+      aria-label="Professional achievements and recognitions"
+      className="relative py-24 sm:py-32 overflow-hidden"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
+        {/* Section Header */}
+        <motion.header
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-16 sm:mb-20"
         >
-          <div className="text-6xl mb-6">🏆</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
+          <div
+            className="text-5xl sm:text-6xl mb-6"
+            aria-hidden="true"
+          >
+            🏆
+          </div>
+
+          <h2
+            id="achievements-heading"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight"
+          >
             <span className="text-gradient">Achievements</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Excellence Driven — Committed to delivering outstanding results through innovation and dedication
-          </p>
-        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
+            Excellence Driven — Committed to delivering outstanding results through
+            innovation and dedication
+          </p>
+        </motion.header>
+
+        {/* Achievements List */}
+        <div
+          role="list"
+          aria-label="List of professional achievements"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto"
+        >
           {achievements.map((achievement, index) => (
-            <motion.div
+            <motion.article
               key={achievement.title}
+              role="listitem"
+              aria-label={achievement.title}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="card-modern p-8"
+              className="card-modern p-6 sm:p-8"
             >
-              <div className={`w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6`}>
-                <achievement.icon className={`w-7 h-7 ${achievement.color}`} />
+              <div
+                className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6"
+                aria-hidden="true"
+              >
+                <achievement.icon
+                  className={`w-7 h-7 ${achievement.color}`}
+                />
               </div>
-              <h3 className="text-2xl font-semibold mb-3">{achievement.title}</h3>
+
+              <h3 className="text-xl sm:text-2xl font-semibold mb-3">
+                {achievement.title}
+              </h3>
+
               <p className="text-muted-foreground leading-relaxed">
                 {achievement.description}
               </p>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

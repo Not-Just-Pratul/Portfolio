@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
-import FloatingShapes from './FloatingShapes';
+import InteractiveShapes from './InteractiveShapes';
 
 const Scene3D = () => {
   return (
@@ -10,7 +10,11 @@ const Scene3D = () => {
         style={{ background: 'transparent' }}
       >
         <Suspense fallback={null}>
-          <FloatingShapes />
+          <InteractiveShapes
+            geometry={<boxGeometry args={[1, 1, 1]} />}
+            position={[0, 0, 0]}
+            color="white"
+          />
         </Suspense>
       </Canvas>
     </div>

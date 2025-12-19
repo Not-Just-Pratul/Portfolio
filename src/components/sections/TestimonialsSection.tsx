@@ -4,40 +4,46 @@ import { Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    name: "Client from Fiverr",
-    role: "Software Developer",
-    content: "Pratul's work exceeded our expectations. The attention to detail and creative solutions were outstanding.",
-    avatar: "SJ"
+    name: 'Client from Fiverr',
+    role: 'Software Developer',
+    content:
+      "Pratul's work exceeded our expectations. The attention to detail and creative solutions were outstanding.",
+    avatar: 'SJ'
   },
   {
-    name: "Harshvardhan Mangla",
-    role: "IT Manager at Mangla Tubes Pvt. Limited",
-    content: "Working with Pratul was a game-changer. The final product was both beautiful and highly functional.",
-    avatar: "MC"
+    name: 'Harshvardhan Mangla',
+    role: 'IT Manager at Mangla Tubes Pvt. Limited',
+    content:
+      'Working with Pratul was a game-changer. The final product was both beautiful and highly functional.',
+    avatar: 'MC'
   },
   {
-    name: "Mentors at Oasis Infobyte",
-    role: "UI/UX Developer",
-    content: "Exceptional design skills combined with technical expertise. Pratul delivered beyond what we imagined.",
-    avatar: "ER"
+    name: 'Mentors at Oasis Infobyte',
+    role: 'UI/UX Developer',
+    content:
+      'Exceptional design skills combined with technical expertise. Pratul delivered beyond what we imagined.',
+    avatar: 'ER'
   },
   {
-    name: "Joshua",
-    role: "Cloud Developer at CloudScale",
-    content: "Pratul's ability to translate complex requirements into elegant solutions is truly remarkable.",
-    avatar: "DK"
+    name: 'Joshua',
+    role: 'Cloud Developer at CloudScale',
+    content:
+      "Pratul's ability to translate complex requirements into elegant solutions is truly remarkable.",
+    avatar: 'DK'
   },
   {
-    name: "Client from UpWork",
-    role: "Design Director at Creative Co",
-    content: "A rare combination of artistic vision and technical prowess. Highly recommended for any project.",
-    avatar: "LA"
+    name: 'Client from UpWork',
+    role: 'Design Director at Creative Co',
+    content:
+      'A rare combination of artistic vision and technical prowess. Highly recommended for any project.',
+    avatar: 'LA'
   },
   {
-    name: "Client from Fiverr",
-    role: "VP Engineering at DataFlow",
-    content: "Professional, efficient, and incredibly talented. Pratul brought our vision to life perfectly.",
-    avatar: "JW"
+    name: 'Client from Fiverr',
+    role: 'VP Engineering at DataFlow',
+    content:
+      'Professional, efficient, and incredibly talented. Pratul brought our vision to life perfectly.',
+    avatar: 'JW'
   }
 ];
 
@@ -54,73 +60,103 @@ const TestimonialsSection = () => {
 
     const animate = () => {
       scrollPosition += scrollSpeed;
-      
-      if (scrollContainer.scrollWidth && scrollPosition >= scrollContainer.scrollWidth / 2) {
+
+      if (
+        scrollContainer.scrollWidth &&
+        scrollPosition >= scrollContainer.scrollWidth / 2
+      ) {
         scrollPosition = 0;
       }
-      
+
       scrollContainer.scrollLeft = scrollPosition;
       animationFrameId = requestAnimationFrame(animate);
     };
 
     animationFrameId = requestAnimationFrame(animate);
 
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
+    return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   return (
-    <section id="testimonials" className="relative py-32 overflow-hidden">
+    <section
+      id="testimonials"
+      aria-labelledby="testimonials-heading"
+      aria-label="Client testimonials and feedback"
+      className="relative py-24 sm:py-32 overflow-hidden"
+    >
+      {/* Section Header */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <motion.div
+        <motion.header
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground">
+          <h2
+            id="testimonials-heading"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground"
+          >
             Client Testimonials
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             What people say about working with me
           </p>
-        </motion.div>
+        </motion.header>
       </div>
 
-      <div 
+      {/* Testimonials Carousel */}
+      <div
         ref={scrollRef}
+        role="list"
+        aria-label="Testimonials carousel"
         className="flex gap-6 overflow-hidden select-none"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {duplicatedTestimonials.map((testimonial, index) => (
-          <div
+          <article
             key={index}
-            className="flex-shrink-0 w-[400px] card-modern p-8 hover:scale-105 transition-transform duration-300"
+            role="listitem"
+            aria-label={`Testimonial from ${testimonial.name}`}
+            className="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[400px] card-modern p-6 sm:p-8 hover:scale-105 transition-transform duration-300"
           >
-            <Quote className="w-10 h-10 text-primary mb-4 opacity-50" />
-            <p className="text-foreground/90 mb-6 leading-relaxed text-base">
-              "{testimonial.content}"
+            <Quote
+              className="w-10 h-10 text-primary mb-4 opacity-50"
+              aria-hidden="true"
+            />
+
+            <p className="text-foreground/90 mb-6 leading-relaxed text-sm sm:text-base">
+              “{testimonial.content}”
             </p>
+
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center text-primary-foreground font-semibold">
+              <div
+                className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center text-primary-foreground font-semibold"
+                aria-label={`Avatar of ${testimonial.name}`}
+              >
                 {testimonial.avatar}
               </div>
+
               <div>
-                <p className="font-semibold text-foreground">{testimonial.name}</p>
-                <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                <p className="font-semibold text-foreground">
+                  {testimonial.name}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  {testimonial.role}
+                </p>
               </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
 
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent" />
+      {/* Edge Gradients (Decorative) */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-32 bg-gradient-to-r from-background to-transparent" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-32 bg-gradient-to-l from-background to-transparent" />
       </div>
     </section>
   );
