@@ -133,7 +133,7 @@ const HeroSection = () => {
           {/* Role Animation */}
           <div
             ref={roleRef}
-            className="mb-8 md:mb-12 text-center"
+            className="mb-7 md:mb-12 text-center"
             aria-live="polite"
             aria-label="Professional role"
           >
