@@ -1,25 +1,68 @@
-import { useEffect } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 import Navigation from '../components/Navigation';
 import HeroSection from '../components/sections/HeroSection';
-import AboutSection from '../components/sections/AboutSection';
-import SkillsSection from '../components/sections/SkillsSection';
-import ServicesSection from '../components/sections/ServicesSection';
-import ProjectsSection from '../components/sections/ProjectsSection';
-import BlogSection from '../components/sections/BlogSection';
-import JourneySection from '../components/sections/JourneySection';
-import AchievementsSection from '../components/sections/AchievementsSection';
-import TestimonialsSection from '../components/sections/TestimonialsSection';
-import ContactSection from '../components/sections/ContactSection';
-import ScrollToTopButton from '../components/ScrollToTopButton';
+import { isMobileDevice, shouldReduceAnimations } from '@/lib/seo';
 import { Github, Linkedin, Instagram } from 'lucide-react';
 import { BookOpen } from 'lucide-react';
-import AdvancedScene3D from '@/components/3d/AdvancedScene3D';
-import { AboutShapes, ProjectsShapes } from '@/components/3d/SectionBackground3D';
+
+// Lazy load non-critical sections
+const AboutSection = lazy(() => import('../components/sections/AboutSection'));
+const SkillsSection = lazy(() => import('../components/sections/SkillsSection'));
+const ServicesSection = lazy(() => import('../components/sections/ServicesSection'));
+const ProjectsSection = lazy(() => import('../components/sections/ProjectsSection'));
+const BlogSection = lazy(() => import('../components/sections/BlogSection'));
+const JourneySection = lazy(() => import('../components/sections/JourneySection'));
+const AchievementsSection = lazy(() => import('../components/sections/AchievementsSection'));
+const TestimonialsSection = lazy(() => import('../components/sections/TestimonialsSection'));
+const ContactSection = lazy(() => import('../components/sections/ContactSection'));
+const ScrollToTopButton = lazy(() => import('../components/ScrollToTopButton'));
+const AdvancedScene3D = lazy(() => import('@/components/3d/AdvancedScene3D'));
+const { AboutShapes, ProjectsShapes } = require('@/components/3d/SectionBackground3D');
+
+// Lazy load 3D scenes only if not on mobile
+const SectionWithBackground = ({ 
+  id, 
+  children, 
+  showBackground = true 
+}: { 
+  id?: string; 
+  children: React.ReactNode; 
+  showBackground?: boolean;
+}) => {
+  const isMobile = isMobileDevice();
+  const shouldLoad3D = showBackground && !isMobile;
+
+  return (
+    <section id={id} className="relative">
+      {shouldLoad3D && (
+        <Suspense fallback={null}>
+          <AdvancedScene3D opacity={0.25} decorative>
+            <ProjectsShapes />
+          </AdvancedScene3D>
+        </Suspense>
+      )}
+      {children}
+    </section>
+  );
+};
+
+// Loading skeleton for sections
+const SectionSkeleton = () => (
+  <div className="min-h-screen bg-background animate-pulse" />
+);
 
 const Index = () => {
   useEffect(() => {
+    // Smooth scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';
+    
+    // Disable animations on mobile if preferred
+    if (shouldReduceAnimations()) {
+      document.documentElement.style.setProperty('--motion-duration', '0ms');
+    }
   }, []);
+
+  const isMobile = isMobileDevice();
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background">
@@ -30,60 +73,65 @@ const Index = () => {
       <main>
         <HeroSection />
 
-        <section id="about" className="relative">
-          <AdvancedScene3D opacity={0.25}>
-            <AboutShapes />
-          </AdvancedScene3D>
-          <AboutSection />
-        </section>
+        <SectionWithBackground id="about" showBackground={!isMobile}>
+          <Suspense fallback={<SectionSkeleton />}>
+            <AboutSection />
+          </Suspense>
+        </SectionWithBackground>
 
-        <section id="skills" className="relative">
-          <AdvancedScene3D opacity={0.25}>
-            <ProjectsShapes />
-          </AdvancedScene3D>
-          <SkillsSection />
-        </section>
+        <SectionWithBackground id="skills" showBackground={!isMobile}>
+          <Suspense fallback={<SectionSkeleton />}>
+            <SkillsSection />
+          </Suspense>
+        </SectionWithBackground>
 
         <section id="services">
-          <ServicesSection />
+          <Suspense fallback={<SectionSkeleton />}>
+            <ServicesSection />
+          </Suspense>
         </section>
         
-        <section id="projects" className="relative">
-           <AdvancedScene3D opacity={0.25}>
-            <ProjectsShapes />
-          </AdvancedScene3D>
-          <ProjectsSection />
-        </section>
+        <SectionWithBackground id="projects" showBackground={!isMobile}>
+          <Suspense fallback={<SectionSkeleton />}>
+            <ProjectsSection />
+          </Suspense>
+        </SectionWithBackground>
 
         <section id="blog">
-          <BlogSection />
+          <Suspense fallback={<SectionSkeleton />}>
+            <BlogSection />
+          </Suspense>
         </section>
         
-        <section id="journey" className="relative">
-          <AdvancedScene3D opacity={0.25}>
-            <AboutShapes />
-          </AdvancedScene3D>
-          <JourneySection />
-        </section>
+        <SectionWithBackground id="journey" showBackground={!isMobile}>
+          <Suspense fallback={<SectionSkeleton />}>
+            <JourneySection />
+          </Suspense>
+        </SectionWithBackground>
 
         <section id="achievements">
-          <AchievementsSection />
+          <Suspense fallback={<SectionSkeleton />}>
+            <AchievementsSection />
+          </Suspense>
         </section>
 
         <section id="testimonials">
-          <TestimonialsSection />
+          <Suspense fallback={<SectionSkeleton />}>
+            <TestimonialsSection />
+          </Suspense>
         </section>
 
-        <section id="contact" className="relative">
-           <AdvancedScene3D opacity={0.25}>
-            <ProjectsShapes />
-          </AdvancedScene3D>
-          <ContactSection />
-        </section>
+        <SectionWithBackground id="contact" showBackground={!isMobile}>
+          <Suspense fallback={<SectionSkeleton />}>
+            <ContactSection />
+          </Suspense>
+        </SectionWithBackground>
       </main>
 
       {/* Scroll to top button */}
-      <ScrollToTopButton />
+      <Suspense fallback={null}>
+        <ScrollToTopButton />
+      </Suspense>
 
       {/* Minimal Footer */}
       <footer className="relative border-t border-border/50 bg-card/50 backdrop-blur-xl">

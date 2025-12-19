@@ -1,0 +1,13 @@
+# Robots.txt for SEO optimization
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /node_modules/
+
+# Crawl delay for heavy crawlers
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://pratul.vercel.app/sitemap.xml

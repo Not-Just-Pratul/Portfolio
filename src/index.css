@@ -5,6 +5,27 @@
 
 /* Pratul's Portfolio - Off Menu Inspired Design System */
 
+/* Mobile-first performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Optimize font rendering for performance */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
 @layer base {
   :root {
     /* Premium Warm Earth Palette */
@@ -279,5 +300,121 @@
   /* Clean glass effect */
   .glass-panel {
     @apply bg-card/30 backdrop-blur-3xl border border-white/[0.05];
+  }
+}
+
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+  /* Disable expensive animations on mobile */
+  .card-modern {
+    transition: all 0.3s ease-out;
+  }
+
+  .card-modern:hover {
+    transform: none !important;
+  }
+
+  /* Simplify floating animation on mobile */
+  .animate-float {
+    animation: none;
+    transform: translateY(0) !important;
+  }
+
+  /* Disable complex transforms */
+  .parallax-container {
+    perspective: none;
+    transform-style: initial;
+  }
+
+  /* Optimize canvas rendering */
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Reduce backdrop blur on low-end devices */
+  .glass-modern {
+    backdrop-filter: none;
+    @apply bg-card/95;
+  }
+
+  /* Simplify shadows on mobile */
+  .glow-primary,
+  .glow-secondary,
+  .glow-accent {
+    box-shadow: none;
+  }
+
+  /* Disable shine effect on mobile */
+  .shine::before {
+    display: none;
+  }
+
+  /* Optimize container sizes for mobile */
+  .container {
+    @apply px-4;
+  }
+
+  /* Reduce padding on mobile */
+  [class*="py-"] {
+    @apply py-4 md:py-8 lg:py-12;
+  }
+
+  [class*="px-"] {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+
+  /* Hide scroll indicators on mobile */
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* Optimize for low-end devices */
+@media (max-width: 480px) {
+  /* Disable all complex animations on very small screens */
+  * {
+    animation-duration: 0.2s !important;
+  }
+
+  /* Simplify all transitions */
+  body * {
+    transition-duration: 0.15s !important;
+  }
+
+  /* Reduce blur effects */
+  [class*="backdrop-blur"] {
+    backdrop-filter: blur(2px);
+  }
+
+  /* Optimize text sizing for mobile */
+  h1 {
+    @apply text-4xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-lg;
+  }
+
+  p {
+    @apply text-sm;
+  }
+}
+
+/* Landscape mode optimizations */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Reduce vertical padding in landscape */
+  [class*="py-"] {
+    @apply py-2;
+  }
+
+  /* Hide non-essential decorative elements */
+  .scroll-indicator,
+  .decorative-element {
+    display: none;
   }
 }

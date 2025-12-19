@@ -3,7 +3,17 @@
   <head>
     <!-- Basic Meta -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1e1e1e" media="(prefers-color-scheme: dark)" />
+
+    <!-- Performance & Security -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="format-detection" content="telephone=no" />
 
     <!-- Primary SEO -->
     <title>Pratul Sharma | Full-Stack Developer & AI Engineer (React, Node.js, TypeScript, Python)</title>
@@ -16,19 +26,35 @@
       name="keywords"
       content="Pratul Sharma, Full-Stack Developer, AI Engineer, React Developer, Node.js, TypeScript, Python, Devpost, Web Developer India, Web Developer USA"
     />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
     <link rel="canonical" href="https://pratul.vercel.app/" />
+
+    <!-- Accessibility & Performance -->
+    <meta name="language" content="en" />
+    <link rel="alternate" href="https://pratul.vercel.app/" hreflang="en-us" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="https://i.postimg.cc/C5j3sFcV/Icon.jpg" />
+    <link rel="shortcut icon" href="https://i.postimg.cc/C5j3sFcV/Icon.jpg" />
+    <link rel="apple-touch-icon" href="https://i.postimg.cc/C5j3sFcV/Icon.jpg" />
 
-    <!-- Fonts -->
+    <!-- Fonts - Optimized with font-display swap for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <!-- Open Graph / LinkedIn / Facebook -->
     <meta property="og:title" content="Pratul Sharma | Full-Stack Developer & AI Engineer" />
@@ -38,6 +64,9 @@
     />
     <meta property="og:url" content="https://pratul.vercel.app/" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Pratul Sharma Portfolio" />
+    <meta property="og:image" content="https://i.postimg.cc/C5j3sFcV/Icon.jpg" />
+    <meta property="og:image:alt" content="Pratul Sharma Profile" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -46,6 +75,8 @@
       name="twitter:description"
       content="Full-stack & AI engineer building 3D web experiences and intelligent apps with React, Node.js, and Python. India & USA."
     />
+    <meta name="twitter:image" content="https://i.postimg.cc/C5j3sFcV/Icon.jpg" />
+    <meta name="twitter:image:alt" content="Pratul Sharma Profile" />
 
     <!-- Structured Data: Person -->
     <script type="application/ld+json">
@@ -55,7 +86,7 @@
         "name": "Pratul Sharma",
         "jobTitle": "Full-Stack Developer & AI Engineer",
         "url": "https://pratul.vercel.app/",
-        "image": "https://yourdomain.com/path-to-photo.jpg",
+        "image": "https://i.postimg.cc/C5j3sFcV/Icon.jpg",
         "sameAs": [
           "https://github.com/not-just-pratul",
           "https://linkedin.com/in/not-just-pratul",
@@ -69,8 +100,30 @@
           "Python",
           "Artificial Intelligence",
           "Full-Stack Development",
-          "3D Web Development"
+          "3D Web Development",
+          "Web Design",
+          "API Development",
+          "Database Design"
         ]
+      }
+    </script>
+
+    <!-- Structured Data: Website -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://pratul.vercel.app/",
+        "name": "Pratul Sharma Portfolio",
+        "description": "Full-Stack Developer & AI Engineer Portfolio",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://pratul.vercel.app/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
       }
     </script>
 
@@ -79,6 +132,20 @@
       name="google-site-verification"
       content="pVraRueFz-Uo7FAFTjjTshrpbvHR9Vn7V_IN550t1B0"
     />
+
+    <!-- Performance: Resource Hints -->
+    <link rel="prefetch" href="/" as="document" />
+    <link rel="prefetch" href="/src/components/" as="script" />
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" />
+
+    <!-- Web App Manifest (PWA) -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Mobile App Meta Tags -->
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
   </head>
 
   <body>

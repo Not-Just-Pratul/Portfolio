@@ -1,6 +1,7 @@
 import { Canvas } from '@react-three/fiber';
-import { Suspense, ReactNode } from 'react';
+import { Suspense, ReactNode, useMemo } from 'react';
 import InteractiveMesh from './InteractiveShapes';
+import { isMobileDevice } from '@/lib/seo';
 
 interface AdvancedScene3DProps {
   children?: ReactNode;
@@ -17,6 +18,12 @@ interface AdvancedScene3DProps {
    * Optional accessible label if scene conveys meaning
    */
   ariaLabel?: string;
+
+  /**
+   * Performance: Whether to render on mobile
+   * @default false (skip on mobile for better performance)
+   */
+  renderOnMobile?: boolean;
 }
 
 const AdvancedScene3D = ({
@@ -25,7 +32,16 @@ const AdvancedScene3D = ({
   className,
   decorative = true,
   ariaLabel,
+  renderOnMobile = false,
 }: AdvancedScene3DProps) => {
+  // Memoized mobile check to prevent unnecessary re-renders
+  const isMobile = useMemo(() => isMobileDevice(), []);
+
+  // Skip rendering 3D scenes on mobile for performance
+  if (isMobile && !renderOnMobile) {
+    return null;
+  }
+
   return (
     <div
       className={className || 'absolute inset-0 -z-10'}
@@ -36,11 +52,16 @@ const AdvancedScene3D = ({
     >
       <Canvas
         camera={{ position: [0, 0, 10], fov: 60 }}
-        gl={{ antialias: true, alpha: true }}
+        gl={{
+          antialias: true,
+          alpha: true,
+          // Performance: Optimize for mobile by disabling some features
+          powerPreference: 'low-power',
+          precision: 'lowp',
+        }}
         style={{ background: 'transparent' }}
-
         /* Performance optimizations */
-        dpr={[1, 2]}
+        dpr={[1, isMobile ? 1 : 2]} // Use lower DPR on mobile
         frameloop="demand"
       >
         <Suspense fallback={null}>
