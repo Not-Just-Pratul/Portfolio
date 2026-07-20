@@ -1,7 +1,7 @@
 import { j as jsxRuntimeExports } from "./vendor-three-S87cgOLp.js";
 import { m as motion } from "./vendor-animation-B5fVPTGx.js";
-import { c as createLucideIcon } from "./index-B-6m-sKj.js";
-import { G as GraduationCap } from "./graduation-cap-BCgY0b69.js";
+import { c as createLucideIcon } from "./index-BKfyU-Nz.js";
+import { G as GraduationCap } from "./graduation-cap-92Uo3EM4.js";
 import "./vendor-ui-BEL27KUT.js";
 /**
  * @license lucide-react v0.462.0 - ISC

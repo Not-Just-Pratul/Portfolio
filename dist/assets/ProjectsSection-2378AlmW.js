@@ -1,7 +1,7 @@
 import { j as jsxRuntimeExports } from "./vendor-three-S87cgOLp.js";
-import { B as Button, G as Github } from "./index-B-6m-sKj.js";
+import { B as Button, G as Github } from "./index-BKfyU-Nz.js";
 import { m as motion } from "./vendor-animation-B5fVPTGx.js";
-import { E as ExternalLink } from "./external-link-CCPSadrl.js";
+import { E as ExternalLink } from "./external-link-CvBiZDIi.js";
 import "./vendor-ui-BEL27KUT.js";
 const project1 = "/assets/project1-Bk5YnNfv.png";
 const project2 = "/assets/project2-Bb6Tzd-7.png";

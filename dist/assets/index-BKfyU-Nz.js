@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/AboutSection-CTRMGwve.js","assets/vendor-three-S87cgOLp.js","assets/vendor-animation-B5fVPTGx.js","assets/graduation-cap-BCgY0b69.js","assets/calendar-Cn3J2S4A.js","assets/vendor-ui-BEL27KUT.js","assets/SkillsSection-BlmK9IId.js","assets/code-xml-wNtKblNO.js","assets/ServicesSection-CabAokA1.js","assets/brain-BEMsr-o5.js","assets/ProjectsSection-61kl025A.js","assets/external-link-CCPSadrl.js","assets/BlogSection-sTdI4rOn.js","assets/JourneySection-DoVEvCqn.js","assets/AchievementsSection-DnVZDim0.js","assets/TestimonialsSection-DkXVrtWZ.js","assets/ContactSection-BIkkuBRn.js","assets/ScrollToTopButton-B80p2Z1f.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/AboutSection-Fcaw8jK-.js","assets/vendor-three-S87cgOLp.js","assets/vendor-animation-B5fVPTGx.js","assets/graduation-cap-92Uo3EM4.js","assets/calendar-BDolhNRh.js","assets/vendor-ui-BEL27KUT.js","assets/SkillsSection-Hgz2Uprb.js","assets/code-xml-COH8WnIx.js","assets/ServicesSection-DR72le_1.js","assets/brain-WOCFl10-.js","assets/ProjectsSection-2378AlmW.js","assets/external-link-CvBiZDIi.js","assets/BlogSection-Dx5J3C_S.js","assets/JourneySection-BWiV-Mk-.js","assets/AchievementsSection-gTIUBogN.js","assets/TestimonialsSection-qWy3f89G.js","assets/ContactSection-D2VYGztp.js","assets/ScrollToTopButton-Bvr_TeDi.js"])))=>i.map(i=>d[i]);
 var __typeError = (msg) => {
   throw TypeError(msg);
 };
@@ -7591,7 +7591,7 @@ const HeroSection = () => {
             "div",
             {
               ref: roleRef,
-              className: "mb-8 md:mb-12 text-center",
+              className: "mb-7 md:mb-12 text-center",
               "aria-live": "polite",
               "aria-label": "Professional role",
               children: [
@@ -7669,16 +7669,16 @@ const HeroSection = () => {
     }
   );
 };
-const AboutSection = reactExports.lazy(() => __vitePreload(() => import("./AboutSection-CTRMGwve.js"), true ? __vite__mapDeps([0,1,2,3,4,5]) : void 0));
-const SkillsSection = reactExports.lazy(() => __vitePreload(() => import("./SkillsSection-BlmK9IId.js"), true ? __vite__mapDeps([6,1,2,7,5]) : void 0));
-const ServicesSection = reactExports.lazy(() => __vitePreload(() => import("./ServicesSection-CabAokA1.js"), true ? __vite__mapDeps([8,1,2,7,9,5]) : void 0));
-const ProjectsSection = reactExports.lazy(() => __vitePreload(() => import("./ProjectsSection-61kl025A.js"), true ? __vite__mapDeps([10,1,2,11,5]) : void 0));
-const BlogSection = reactExports.lazy(() => __vitePreload(() => import("./BlogSection-sTdI4rOn.js"), true ? __vite__mapDeps([12,1,2,4,11,5]) : void 0));
-const JourneySection = reactExports.lazy(() => __vitePreload(() => import("./JourneySection-DoVEvCqn.js"), true ? __vite__mapDeps([13,1,2,3,5]) : void 0));
-const AchievementsSection = reactExports.lazy(() => __vitePreload(() => import("./AchievementsSection-DnVZDim0.js"), true ? __vite__mapDeps([14,1,2,9,5]) : void 0));
-const TestimonialsSection = reactExports.lazy(() => __vitePreload(() => import("./TestimonialsSection-DkXVrtWZ.js"), true ? __vite__mapDeps([15,1,2,5]) : void 0));
-const ContactSection = reactExports.lazy(() => __vitePreload(() => import("./ContactSection-BIkkuBRn.js"), true ? __vite__mapDeps([16,1,2,5]) : void 0));
-const ScrollToTopButton = reactExports.lazy(() => __vitePreload(() => import("./ScrollToTopButton-B80p2Z1f.js"), true ? __vite__mapDeps([17,1,2,5]) : void 0));
+const AboutSection = reactExports.lazy(() => __vitePreload(() => import("./AboutSection-Fcaw8jK-.js"), true ? __vite__mapDeps([0,1,2,3,4,5]) : void 0));
+const SkillsSection = reactExports.lazy(() => __vitePreload(() => import("./SkillsSection-Hgz2Uprb.js"), true ? __vite__mapDeps([6,1,2,7,5]) : void 0));
+const ServicesSection = reactExports.lazy(() => __vitePreload(() => import("./ServicesSection-DR72le_1.js"), true ? __vite__mapDeps([8,1,2,7,9,5]) : void 0));
+const ProjectsSection = reactExports.lazy(() => __vitePreload(() => import("./ProjectsSection-2378AlmW.js"), true ? __vite__mapDeps([10,1,2,11,5]) : void 0));
+const BlogSection = reactExports.lazy(() => __vitePreload(() => import("./BlogSection-Dx5J3C_S.js"), true ? __vite__mapDeps([12,1,2,4,11,5]) : void 0));
+const JourneySection = reactExports.lazy(() => __vitePreload(() => import("./JourneySection-BWiV-Mk-.js"), true ? __vite__mapDeps([13,1,2,3,5]) : void 0));
+const AchievementsSection = reactExports.lazy(() => __vitePreload(() => import("./AchievementsSection-gTIUBogN.js"), true ? __vite__mapDeps([14,1,2,9,5]) : void 0));
+const TestimonialsSection = reactExports.lazy(() => __vitePreload(() => import("./TestimonialsSection-qWy3f89G.js"), true ? __vite__mapDeps([15,1,2,5]) : void 0));
+const ContactSection = reactExports.lazy(() => __vitePreload(() => import("./ContactSection-D2VYGztp.js"), true ? __vite__mapDeps([16,1,2,5]) : void 0));
+const ScrollToTopButton = reactExports.lazy(() => __vitePreload(() => import("./ScrollToTopButton-Bvr_TeDi.js"), true ? __vite__mapDeps([17,1,2,5]) : void 0));
 const AdvancedScene3D = reactExports.lazy(() => __vitePreload(() => Promise.resolve().then(() => AdvancedScene3D$2), true ? void 0 : void 0));
 reactExports.lazy(() => __vitePreload(() => Promise.resolve().then(() => SectionBackground3D), true ? void 0 : void 0).then((m) => ({ default: m.AboutShapes })));
 const ProjectsShapes = reactExports.lazy(() => __vitePreload(() => Promise.resolve().then(() => SectionBackground3D), true ? void 0 : void 0).then((m) => ({ default: m.ProjectsShapes })));

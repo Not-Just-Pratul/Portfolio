@@ -1,8 +1,8 @@
 import { j as jsxRuntimeExports } from "./vendor-three-S87cgOLp.js";
 import { m as motion } from "./vendor-animation-B5fVPTGx.js";
-import { G as GraduationCap } from "./graduation-cap-BCgY0b69.js";
-import { C as Calendar } from "./calendar-Cn3J2S4A.js";
-import "./index-B-6m-sKj.js";
+import { G as GraduationCap } from "./graduation-cap-92Uo3EM4.js";
+import { C as Calendar } from "./calendar-BDolhNRh.js";
+import "./index-BKfyU-Nz.js";
 import "./vendor-ui-BEL27KUT.js";
 const AboutSection = () => {
   const quickFacts = [
