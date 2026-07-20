@@ -15,6 +15,7 @@ export default defineConfig({
     outDir: 'dist',
     // Optimize bundle size
     minify: false,
+    chunkSizeWarningLimit: 1500,
     // Code splitting strategy
     rollupOptions: {
       output: {
