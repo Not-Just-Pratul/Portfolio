@@ -171,7 +171,7 @@ const Navigation = () => {
                 <a href="https://github.com/Not-Just-Pratul" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                   <Github className="w-5 h-5" />
                 </a>
-                <a href="https://linkedin.com/in/not-just-pratul" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <a href="https://linkedin.com/in/buildwithpratul" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Linkedin className="w-5 h-5" />
                 </a>
               </div>
