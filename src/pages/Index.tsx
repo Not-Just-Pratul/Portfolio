@@ -158,7 +158,7 @@ const Index = () => {
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="https://linkedin.com/in/not-just-pratul"
+                href="https://linkedin.com/in/buildwithpratul"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-11 h-11 rounded-2xl bg-card border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/40 hover:scale-105 transition-all duration-300"
